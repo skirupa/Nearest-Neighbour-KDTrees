@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1613195109 source:c:\users\indian\desktop\work now\projects\kdtrees\kd_tree.cpp
+	<bits/stdc++.h>
+	<iostream>
+	<string.h>
+	<math.h>
+
+1613195129 source:c:\users\indian\desktop\work now\projects\kdtrees\main.cpp
+	<iostream>
+	"kd_tree.cpp"
+
+1613195109 c:\users\indian\desktop\work now\projects\kdtrees\kd_tree.cpp
+	<bits/stdc++.h>
+	<iostream>
+	<string.h>
+	<math.h>
+
