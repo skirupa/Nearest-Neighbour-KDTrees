@@ -14,9 +14,10 @@ int main()
     float dist;
     char choice;
     string place_to_search;
-    int k=2,n=21, point_to_search[2], select, point1[2], point2[2];
-    int points[21][2]={{1,1}, {5,5}, {2,9}, {5,12}, {2,16}, {8,3}, {8,7}, {9,10}, {7,16}, {10,15}, {11,4}, {11,9}, {13,12}, {14,3}, {14,14}, {15,8},{19,3},{19,12}, {20,15}, {21,9}, {22,2}};
-    string names[n] = {"Waterfalls", "School", "Museum", "Hospital", "Church", "Mosque", "Mall", "School", "School", "Temple", "Hospital", "Police Station", "Mosque", "Temple", "Hospital", "School", "Police Station", "Mall", "School", "Hospital", "Church"};
+    int k=2,n=21;
+    vector<int> point_to_search(2), point1(2), point2(2);
+    vector<vector<int>> points{{1,1}, {5,5}, {2,9}, {5,12}, {2,16}, {8,3}, {8,7}, {9,10}, {7,16}, {10,15}, {11,4}, {11,9}, {13,12}, {14,3}, {14,14}, {15,8},{19,3},{19,12}, {20,15}, {21,9}, {22,2}};
+    vector<string> names = {"Waterfalls", "School", "Museum", "Hospital", "Church", "Mosque", "Mall", "School", "School", "Temple", "Hospital", "Police Station", "Mosque", "Temple", "Hospital", "School", "Police Station", "Mall", "School", "Hospital", "Church"};
     for(int i=0; i<21; i++)
     {
         root = temp.insertNode(root, k, points[i], 0, names[i]);
