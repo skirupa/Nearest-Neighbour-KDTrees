@@ -105,14 +105,12 @@ class NODE
             {
                 for(int z = 0; z < 9; z++)
                 {
-                    if(names[i] == new_names[z] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
+                    dist = sqrt(((point[i][0]-search_point[0])*(point[i][0]-search_point[0])) + ((point[i][1]-search_point[1])*(point[i][1]-search_point[1])));
+
+                    if(names[i] == new_names[z] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]) && dist < min_dists[z])
                     {
-                        dist = sqrt(((point[i][0]-search_point[0])*(point[i][0]-search_point[0]))+ ((point[i][1]-search_point[1])*(point[i][1]-search_point[1])));
-                        if(dist<min_dists[z])
-                        {
                             min_dists[z] = dist;
                             min_indices[z] = i;
-                        }
                     }
                 }
             }
