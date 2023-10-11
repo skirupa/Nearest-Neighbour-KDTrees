@@ -3,6 +3,7 @@
 #include<iostream>
 #include<string.h>
 #include<math.h>
+#include <memory>
 namespace std;
 
 class NODE
@@ -15,7 +16,7 @@ class NODE
 
         NODE *newNode(int k, vector<int> arr, string name)
         {
-                NODE *temp = new NODE;
+                auto temp = unique_ptr<NODE>(new NODE);
                 temp -> point = new int[k];
                 for(int i=0; i<k; i++)
                         temp -> point[i] = arr[i];
