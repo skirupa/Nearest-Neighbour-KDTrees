@@ -98,101 +98,30 @@ class NODE
             }
             //new_names has the list of places without repetition
             int min_1_dist=9999, min_2_dist=9999, min_3_dist=9999, min_4_dist=9999, min_5_dist=9999, min_6_dist = 9999, min_7_dist=9999, min_8_dist=9999, min_9_dist=9999, dist, min_1, min_2, min_3, min_4, min_5, min_6, min_7, min_8, min_9;
+            vector<int> min_dists(9, INT_MAX);
+            vector<int> min_indices(9, 0);
+
             for(int i=0; i<21; i++)
             {
-
-                if(names[i] == new_names[0] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
+                for(int z = 0; z < 9; z++)
                 {
-                    dist = sqrt(((point[i][0]-search_point[0])*(point[i][0]-search_point[0]))+ ((point[i][1]-search_point[1])*(point[i][1]-search_point[1])));
-                    if(dist<min_1_dist)
+                    if(names[i] == new_names[z] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
                     {
-                        min_1_dist = dist;
-                        min_1 = i;
-                    }
-                }
-                if(names[i] == new_names[1] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_2_dist)
-                    {
-                        min_2_dist = dist;
-                        min_2 = i;
-                    }
-                }
-                if(names[i] == new_names[2] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_3_dist)
-                    {
-                        min_3_dist = dist;
-                        min_3 = i;
-                    }
-                }
-                if(names[i] == new_names[3] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_4_dist)
-                    {
-                        min_4_dist = dist;
-                        min_4 = i;
-                    }
-                }
-                if(names[i] == new_names[4] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_5_dist)
-                    {
-                        min_5_dist = dist;
-                        min_5 = i;
-                    }
-                }
-                if(names[i] == new_names[5] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_6_dist)
-                    {
-                        min_6_dist = dist;
-                        min_6 = i;
-                    }
-                }
-                if(names[i] == new_names[6] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_7_dist)
-                    {
-                        min_7_dist = dist;
-                        min_7 = i;
-                    }
-                }
-                if(names[i] == new_names[7] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_8_dist)
-                    {
-                        min_8_dist = dist;
-                        min_8 = i;
-                    }
-                }
-                if(names[i] == new_names[8] && (search_point[0]!=point[i][0] && search_point[1]!=point[i][1]))
-                {
-                    dist = sqrt((point[i][0]-search_point[0])*(point[i][0]-search_point[0]) + (point[i][1]-search_point[1])*(point[i][1]-search_point[1]));
-                    if(dist<min_9_dist)
-                    {
-                        min_9_dist = dist;
-                        min_9 = i;
+                        dist = sqrt(((point[i][0]-search_point[0])*(point[i][0]-search_point[0]))+ ((point[i][1]-search_point[1])*(point[i][1]-search_point[1])));
+                        if(dist<min_dists[z])
+                        {
+                            min_dists[z] = dist;
+                            min_indices[z] = i;
+                        }
                     }
                 }
             }
             cout<<"The nearest neighbours from the point ("<<search_point[0]<<","<<search_point[1]<<")"<<" are:\n";
-            cout<<new_names[0]<<" "<<"Located at: ("<<point[min_1][0]<<","<<point[min_1][1]<<")"<<endl;
-            cout<<new_names[1]<<" "<<"Located at: ("<<point[min_2][0]<<","<<point[min_2][1]<<")"<<endl;
-            cout<<new_names[2]<<" "<<"Located at: ("<<point[min_3][0]<<","<<point[min_3][1]<<")"<<endl;
-            cout<<new_names[3]<<" "<<"Located at: ("<<point[min_4][0]<<","<<point[min_4][1]<<")"<<endl;
-            cout<<new_names[4]<<" "<<"Located at: ("<<point[min_5][0]<<","<<point[min_5][1]<<")"<<endl;
-            cout<<new_names[5]<<" "<<"Located at: ("<<point[min_6][0]<<","<<point[min_6][1]<<")"<<endl;
-            cout<<new_names[6]<<" "<<"Located at: ("<<point[min_7][0]<<","<<point[min_7][1]<<")"<<endl;
-            cout<<new_names[7]<<" "<<"Located at: ("<<point[min_8][0]<<","<<point[min_8][1]<<")"<<endl;
-            cout<<new_names[8]<<" "<<"Located at: ("<<point[min_9][0]<<","<<point[min_9][1]<<")"<<endl;
+
+            for(int i = 0; i < 9; i++)
+            {
+                cout<<new_names[i]<<" "<<"Located at: ("<<point[min_indices[i]][0]<<","<<point[min_indices[i]][1]<<")"<<endl;
+            }
         }
 
 
@@ -234,4 +163,3 @@ class NODE
                 }
         }
 };
-
