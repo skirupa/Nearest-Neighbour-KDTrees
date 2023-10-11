@@ -60,11 +60,11 @@ class NODE
                 {
                         for(int j=x1; j<=x2; j++)
                         {
-                                for(int k=y1; k<=y2; k++)
+                                for(int z=y1; z<=y2; z++)
                                 {
-                                        if((point[i][0] == j && point[i][0]!=search_point[0]) && (point[i][1] == k && point[i][1]!=search_point[1]))
+                                        if((point[i][0] == j && point[i][0]!=search_point[0]) && (point[i][1] == z && point[i][1]!=search_point[1]))
                                         {
-                                                cout<<names[i]<<" "<<"Located at: "<<"("<<j<<","<<k<<")"<<endl;
+                                                cout<<names[i]<<" "<<"Located at: "<<"("<<j<<","<<z<<")"<<endl;
                                         }
                                 }
                         }
