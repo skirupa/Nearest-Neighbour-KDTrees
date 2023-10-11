@@ -10,7 +10,8 @@ class NODE
         public:
         int *point;
         string name;
-        NODE *left, *right;
+        NODE *left;
+        NODE *right;
 
         NODE *newNode(int k, int arr[], string name)
         {
