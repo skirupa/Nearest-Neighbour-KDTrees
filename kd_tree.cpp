@@ -17,7 +17,7 @@ class NODE
         NODE *newNode(int k, vector<int> arr, string name)
         {
                 auto temp = unique_ptr<NODE>();
-                temp -> point = new int[k];
+                temp -> point = vector<int>(k).data();
                 for(int i=0; i<k; i++)
                         temp -> point[i] = arr[i];
                 temp -> left = NULL;
