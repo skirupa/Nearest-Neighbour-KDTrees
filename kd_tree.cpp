@@ -20,8 +20,8 @@ class NODE
                 temp -> point = vector<int>(k).data();
                 for(int i=0; i<k; i++)
                         temp -> point[i] = arr[i];
-                temp -> left = NULL;
-                temp -> right = NULL;
+                temp -> left = nullptr;
+                temp -> right = nullptr;
                 temp -> name = name;
                 return temp;
         }
@@ -29,7 +29,7 @@ class NODE
         //Insert node into the kd tree
         NODE *insertNode(NODE *root, int k, vector<int> point, int depth, string name)
         {
-                if(root == NULL)
+                if(root == nullptr)
                         return newNode(k,point, name);
                 else
                 {
@@ -224,7 +224,7 @@ class NODE
         //Preorder of kd-tree
         void preorder(NODE *root, int k)
         {
-                if(root==NULL)
+                if(root==nullptr)
                         return;
                 else
                 {
