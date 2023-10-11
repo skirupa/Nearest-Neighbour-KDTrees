@@ -48,7 +48,7 @@ class NODE
 
 
         //Performs range search - prints the list of places located within 500 mts from the given point, Boundaries is in the form of a rectangle.
-        NODE *range_search(NODE *root, int k, vector<int> search_point, vector<vector<int>> point, string names[])
+        NODE *range_search(NODE *root, int k, vector<int> search_point, vector<vector<int>> point, vector<string> names)
         {
                 int x1 = (search_point[0])-5;
                 int x2 = (search_point[0])+5;
