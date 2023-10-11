@@ -13,7 +13,7 @@ class NODE
         NODE *left;
         NODE *right;
 
-        NODE *newNode(int k, int arr[], string name)
+        NODE *newNode(int k, vector<int> arr, string name)
         {
                 NODE *temp = new NODE;
                 temp -> point = new int[k];
@@ -26,7 +26,7 @@ class NODE
         }
 
         //Insert node into the kd tree
-        NODE *insertNode(NODE *root, int k, int point[], int depth, string name)
+        NODE *insertNode(NODE *root, int k, vector<int> point, int depth, string name)
         {
                 if(root == NULL)
                         return newNode(k,point, name);
@@ -47,7 +47,7 @@ class NODE
 
 
         //Performs range search - prints the list of places located within 500 mts from the given point, Boundaries is in the form of a rectangle.
-        NODE *range_search(NODE *root, int k,int search_point[], int point[21][2], string names[])
+        NODE *range_search(NODE *root, int k, vector<int> search_point, vector<vector<int>> point, string names[])
         {
                 int x1 = (search_point[0])-5;
                 int x2 = (search_point[0])+5;
@@ -73,10 +73,10 @@ class NODE
 
 
         //Nearest neighbour search - prints the list of all places which are closest to the given point
-        void nearest_neighbour(NODE *root, int k, int search_point[], int point[21][2], string names[])
+        void nearest_neighbour(NODE *root, int k, vector<int> search_point, vector<vector<int>> point, vector<string> names)
         {
-            int nearest_arr[30], x=0, j;
-            string new_names[30];
+            vector<int> nearest_arr(30), x=0, j;
+            vector<string> new_names(30);
             for(int i=0; i<21; i++)
             {
                   int count = 0;
@@ -196,7 +196,7 @@ class NODE
 
 
         //Check if the given co-ordinate is present in the kd-tree
-        void find_place(string place, string names[], int points[21][2])
+        void find_place(string place, vector<string> names, vector<vector<int>> points)
         {
             int flag =0;
             for(int i=0; i<21; i++)
@@ -213,7 +213,7 @@ class NODE
 
 
         //Find distance between the two given points
-        float find_dist(int point1[2], int point2[2])
+        float find_dist(vector<int> point1, vector<int> point2)
         {
                 float dist = sqrt((point2[0] - point1[0])*(point2[0] - point1[0]) + (point2[1] - point1[1])*(point2[1] - point1[1]));
                 return dist;
